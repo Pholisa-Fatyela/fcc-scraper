@@ -1,0 +1,122 @@
+/*
+
+fCC Scraper Leaderboard
+
+Some way to dynamically generate leaderboards. It automatically looks at days. It provides some sort of timeline of results
+
+
+Todo
+* Proof of concept
+* Just the results of a list of users
+
+
+Helpful Links:
+
+* https://github.com/gwuah/FCC-Scraper
+* https://github.com/gwuah/FCC-Camper-Rankings
+
+*/
+
+$(function(){
+
+  // variables
+  var scraper;
+  var dtScrapeDate;
+  var strScrapeDate;
+
+
+  // script
+
+  init();
+
+
+  // functions
+
+  function init(){
+    console.log('line 32. init');
+
+    setup();
+    testScraper();
+  }
+
+  function setup(){
+    dtScrapeDate = new Date();
+    strScrapeDate = dateToScraperDateString(dtScrapeDate);
+    strScrapeDate = "May 13, 2017";
+    strScrapeDate = "";
+
+    console.log('line 46. strScrapeDate: '); console.log(strScrapeDate);
+
+    scraper = new Scraper();
+    var intSubmissions = scraper.spd(strScrapeDate);
+
+    console.log('line 52. intSubmissions: ', intSubmissions);
+
+    // console.log(scraper.user);
+  }
+
+  function dateToScraperDateString(dtDate){
+
+    var intMonth = +dtDate.getMonth() + 1;
+    var strMonth = intMonthToString(intMonth);
+    var strDay = dtDate.getDate();
+    var strYear = dtDate.getFullYear();
+
+    var strRetDate = `${strMonth} ${strDay}, ${strYear}`;
+    strRetDate = strRetDate.trim();
+
+    return strRetDate;
+  }
+
+  function intMonthToString(intMonth){
+    var strRetMonthStr = '';
+
+    switch (intMonth){
+      case 1:
+        strRetMonthStr = 'Jan';
+        break;
+      case 2:
+        strRetMonthStr = 'Feb';
+        break;
+      case 3:
+        strRetMonthStr = 'Mar';
+        break;
+      case 4:
+        strRetMonthStr = 'Apr';
+        break;
+      case 5:
+        strRetMonthStr = 'May';
+        break;
+      case 6:
+        strRetMonthStr = 'Jun';
+        break;
+      case 7:
+        strRetMonthStr = 'Jul';
+        break;
+      case 8:
+        strRetMonthStr = 'Aug';
+        break;
+      case 9:
+        strRetMonthStr = 'Sep';
+        break;
+      case 10:
+        strRetMonthStr = 'Oct';
+        break;
+      case 11:
+        strRetMonthStr = 'Nov';
+        break;
+      case 12:
+        strRetMonthStr = 'Dec';
+        break;
+    }
+
+    return strRetMonthStr;
+  }
+
+  function testScraper(){
+    console.log('line 37. testScraper');
+
+
+  }
+
+})

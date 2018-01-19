@@ -1,0 +1,209 @@
+/*
+  fcc scraper
+*/
+
+/* General
+*/
+
+#btn-refresh{
+  font-size: 4vw;
+  border-radius: 2vw;
+}
+
+.dont-show{
+  visibility: hidden;
+}
+
+/* Signed In User
+*/
+
+
+.div-same-row *{
+  display: inline-block;
+}
+
+.span-loading-wrapper{
+  margin-left: 1em;
+  font-size: 3vw;
+}
+
+.span-loading-ellipses{
+  margin: 0;
+  padding: 0;
+}
+
+/* Lists
+*/
+
+.ul-done-items-list li:first-child{
+  text-transform: capitalize;
+  list-style-type: none;
+}
+
+.span-expando-section{
+  float: right;
+}
+
+/* breaking for food ... */
+
+/* Animations */
+
+/* Loading */
+
+@keyframes first-dot {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0;
+  }
+}
+
+@keyframes second-dot {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0;
+  }
+}
+
+@keyframes third-dot {
+  0% {
+    opacity: 0;
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0;
+  }
+}
+
+
+/* Pie chart progress meter */
+
+.xy-centered{
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  margin: auto;
+}
+
+.row{
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.visible{
+  opacity: 1;
+}
+
+.invisible{
+  opacity: 0;
+}
+
+.main{
+  min-height: 55%;
+  position: relative;
+  background: inherit;
+}
+
+.flasher{
+  /*
+  max-height: 100%;
+  height: 20vw;
+  width: 20vw;
+  */
+
+  height: 200px;
+  width: 200px;
+  background: inherit;
+  cursor: pointer;
+}
+
+
+@keyframes rota {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes reveal {
+  0%, 100%   { opacity: 0; }
+  10%   { opacity: 0.4; }
+  90%   { opacity: 0.4; }
+}
+
+@keyframes fill {
+  0%        { opacity: 0; }
+  50%, 100% { opacity: 1; }
+}
+
+@keyframes mask {
+  0%        { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.pie-timer-container{
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  opacity: 0;
+  border-radius: 50%;
+  animation: reveal 3s infinite;
+}
+
+.pie-timer-wrapper{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+}
+
+.pie {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  background: gray;
+  opacity: 1;
+}
+
+.spinner {
+  border-radius: 999px 0 0 999px;
+  z-index: 200;
+  border-right: none;
+  transform-origin: 100% 50%;
+  animation: rota 3s linear infinite;
+}
+
+.filler {
+  border-radius: 0 999px 999px 0;
+  z-index: 100;
+  border-left: none;
+  animation: fill 3s steps(1, end) infinite;
+  left: 50%;
+  opacity: 0;
+}
+
+.mask {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  z-index: 300;
+  opacity: 1;
+  background: inherit;
+  animation: mask 3s steps(1, end) infinite;
+}
